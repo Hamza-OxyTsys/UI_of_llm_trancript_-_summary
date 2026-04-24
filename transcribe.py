@@ -3,12 +3,14 @@ import time
 import tempfile
 from pathlib import Path
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from google import genai
 
-load_dotenv()
+# load_dotenv()
+import streamlit as st
 
-_API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+# _API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+_API_KEY = st.secrets.get("GOOGLE_API_KEY") or st.secrets.get("GEMINI_API_KEY")
 _CLIENT = None
 
 MODEL = "gemini-2.5-flash"
